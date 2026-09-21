@@ -7,17 +7,17 @@ import { spawnSync } from "node:child_process";
 import { installCodingAgentConsumer, packReleasePackages, smokeTestCodingAgentConsumer } from "./coding-agent-consumer.mjs";
 
 const packages = [
-	{ directory: "packages/chord", name: "@earendil-works/chord" },
-	{ directory: "packages/telemetry", name: "@earendil-works/pi-telemetry" },
-	{ directory: "packages/ai", name: "@earendil-works/pi-ai" },
-	{ directory: "packages/durable", name: "@earendil-works/pi-durable" },
-	{ directory: "packages/tui", name: "@earendil-works/pi-tui" },
-	{ directory: "packages/agent", name: "@earendil-works/pi-agent-core" },
-	{ directory: "packages/protocol", name: "@earendil-works/pi-protocol" },
-	{ directory: "packages/client", name: "@earendil-works/pi-client" },
-	{ directory: "packages/session-backends/sqlite-node", name: "@earendil-works/pi-session-backend-sqlite-node" },
-	{ directory: "packages/server", name: "@earendil-works/pi-server" },
-	{ directory: "packages/coding-agent", name: "@earendil-works/pi-coding-agent" },
+	{ directory: "packages/chord", name: "@qf/chord" },
+	{ directory: "packages/telemetry", name: "@qf/pi-telemetry" },
+	{ directory: "packages/ai", name: "@qf/pi-ai" },
+	{ directory: "packages/durable", name: "@qf/pi-durable" },
+	{ directory: "packages/tui", name: "@qf/pi-tui" },
+	{ directory: "packages/agent", name: "@qf/pi-agent-core" },
+	{ directory: "packages/protocol", name: "@qf/pi-protocol" },
+	{ directory: "packages/client", name: "@qf/pi-client" },
+	{ directory: "packages/session-backends/sqlite-node", name: "@qf/pi-session-backend-sqlite-node" },
+	{ directory: "packages/server", name: "@qf/pi-server" },
+	{ directory: "packages/coding-agent", name: "@qf/pi-coding-agent" },
 ];
 
 function printUsage() {

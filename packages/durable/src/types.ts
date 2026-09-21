@@ -1,5 +1,5 @@
-import type { Context, JsonValue } from "@earendil-works/chord";
-import type { Message } from "@earendil-works/pi-ai";
+import type { Context, JsonValue } from "@qf/chord";
+import type { Message } from "@qf/pi-ai";
 
 /** Session-global identifier shared by every durable record table. */
 export type Id = number;

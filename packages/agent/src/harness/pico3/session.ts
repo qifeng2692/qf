@@ -1,6 +1,6 @@
-import { type Context, isJsonValue } from "@earendil-works/chord";
-import { createContextKey, withContextValue, withoutAbortSignal } from "@earendil-works/chord/context";
-import { isBase, type Op, type Tracker, track } from "@earendil-works/chord/delta";
+import { type Context, isJsonValue } from "@qf/chord";
+import { createContextKey, withContextValue, withoutAbortSignal } from "@qf/chord/context";
+import { isBase, type Op, type Tracker, track } from "@qf/chord/delta";
 import { deriveContext } from "./context.ts";
 import { Membrane } from "./membrane.ts";
 import {

@@ -15,9 +15,9 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: [
-			{ find: /^@earendil-works\/pi-telemetry$/, replacement: telemetrySrcIndex },
-			{ find: /^@earendil-works\/pi-ai$/, replacement: aiSrcIndex },
-			{ find: /^@earendil-works\/pi-ai\/compat$/, replacement: aiSrcCompat },
+			{ find: /^@qf\/pi-telemetry$/, replacement: telemetrySrcIndex },
+			{ find: /^@qf\/pi-ai$/, replacement: aiSrcIndex },
+			{ find: /^@qf\/pi-ai\/compat$/, replacement: aiSrcCompat },
 		],
 	},
 });

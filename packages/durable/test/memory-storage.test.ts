@@ -1,5 +1,5 @@
-import type { JsonValue } from "@earendil-works/chord";
-import { BACKGROUND_CONTEXT } from "@earendil-works/chord/context";
+import type { JsonValue } from "@qf/chord";
+import { BACKGROUND_CONTEXT } from "@qf/chord/context";
 import { describe, expect, it } from "vitest";
 import { MemoryStorage } from "../src/memory-storage.ts";
 import {

@@ -2,26 +2,21 @@ import { randomUUID } from "node:crypto";
 import { chmod, lstat, mkdir, readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { isAbsolute, join } from "node:path";
-import type { Context } from "@earendil-works/chord";
-import type { FacetBundleArtifact } from "@earendil-works/chord/node";
-import {
-	BACKGROUND_CONTEXT,
-	type JsonlSessionMetadata,
-	JsonlSessionRepo,
-	TODO_CONTEXT,
-} from "@earendil-works/pi-agent-core";
-import { NodeExecutionEnv } from "@earendil-works/pi-agent-core/node";
-import { Client, ServerError as ClientServerError, DisconnectedError } from "@earendil-works/pi-client";
-import { createUnixTransportFactory, type UnixServerRoute } from "@earendil-works/pi-client/unix";
-import { isServerId, type ServerId } from "@earendil-works/pi-protocol";
+import type { Context } from "@qf/chord";
+import type { FacetBundleArtifact } from "@qf/chord/node";
+import { BACKGROUND_CONTEXT, type JsonlSessionMetadata, JsonlSessionRepo, TODO_CONTEXT } from "@qf/pi-agent-core";
+import { NodeExecutionEnv } from "@qf/pi-agent-core/node";
+import { Client, ServerError as ClientServerError, DisconnectedError } from "@qf/pi-client";
+import { createUnixTransportFactory, type UnixServerRoute } from "@qf/pi-client/unix";
+import { isServerId, type ServerId } from "@qf/pi-protocol";
 import {
 	ServerError as RoutedServerError,
 	type Server,
 	type ServerHost,
 	SessionAmbiguousError,
 	SessionNotFoundError,
-} from "@earendil-works/pi-server";
-import { createUnixServer, getUnixSocketPath } from "@earendil-works/pi-server/unix";
+} from "@qf/pi-server";
+import { createUnixServer, getUnixSocketPath } from "@qf/pi-server/unix";
 import lockfile from "proper-lockfile";
 import type { AuthInput } from "../cli/experimental/command-options.ts";
 import { getAgentDir } from "../config.ts";

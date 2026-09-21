@@ -40,9 +40,9 @@ import {
   createFacetHost, createRemoteServiceBinding, defineFacet, defineService,
   type Context, type Facet, type JsonValue, type RemoteServiceTransport,
   type ReplicatedState,
-} from "@earendil-works/chord";
-import { BACKGROUND_CONTEXT } from "@earendil-works/chord/context";
-import { applyImmutable } from "@earendil-works/chord/delta";
+} from "@qf/chord";
+import { BACKGROUND_CONTEXT } from "@qf/chord/context";
+import { applyImmutable } from "@qf/chord/delta";
 
 // The spec calls this JsonObject; current Chord exports JsonValue, not JsonObject.
 type JsonObject = { [key: string]: JsonValue };

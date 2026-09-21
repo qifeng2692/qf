@@ -9,8 +9,8 @@ import {
 	normalizeContext,
 	type SimpleStreamOptions,
 	type UserMessage,
-} from "@earendil-works/pi-ai";
-import { NOOP_TELEMETRY_CONTEXT } from "@earendil-works/pi-telemetry";
+} from "@qf/pi-ai";
+import { NOOP_TELEMETRY_CONTEXT } from "@qf/pi-telemetry";
 import { describe, expect, it } from "vitest";
 import { BACKGROUND_CONTEXT, withAbortSignal } from "../../src/harness/context.ts";
 import { type AssistantResponseMetadata, streamHarnessAssistant } from "../../src/harness/execution/assistant.ts";

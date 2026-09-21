@@ -1,4 +1,4 @@
-import type { Context, JsonValue } from "@earendil-works/chord";
+import type { Context, JsonValue } from "@qf/chord";
 import type {
 	ConversationRecord,
 	Cursor,
