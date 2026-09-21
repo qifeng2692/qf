@@ -35,4 +35,12 @@ export const VIRTUAL_MODULES: Record<string, unknown> = {
 	"@mariozechner/pi-ai/oauth": bundledPiAiOauth,
 	"@mariozechner/pi-ai/providers/all": bundledPiAiProviders,
 	"@mariozechner/pi-coding-agent": bundledPiCodingAgent,
+	// Legacy scopes: installed extensions in the wild still import these.
+	"@earendil-works/pi-agent-core": bundledPiAgentCore,
+	"@earendil-works/pi-tui": bundledPiTui,
+	"@earendil-works/pi-ai": bundledPiAiCompat,
+	"@earendil-works/pi-ai/compat": bundledPiAiCompat,
+	"@earendil-works/pi-ai/oauth": bundledPiAiOauth,
+	"@earendil-works/pi-ai/providers/all": bundledPiAiProviders,
+	"@earendil-works/pi-coding-agent": bundledPiCodingAgent,
 };
