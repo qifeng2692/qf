@@ -5,14 +5,21 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  schedule:
+    # Weekly upstream drift check (Monday 03:00 UTC): runs the --check mode of
+    # scripts/sync-upstream.sh against upstream earendil-works/pi.
+    - cron: "0 3 * * 1"
 
 jobs:
   build-check-test:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -23,11 +30,16 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install system dependencies
+      - name: Install system dependencies (Linux)
+        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev fd-find ripgrep
           sudo ln -s $(which fdfind) /usr/local/bin/fd
+
+      - name: Install system dependencies (Windows)
+        if: runner.os == 'Windows'
+        run: choco install fd ripgrep --yes --no-progress
 
       - name: Install dependencies
         run: npm ci --ignore-scripts
@@ -40,3 +52,18 @@ jobs:
 
       - name: Test
         run: npm test
+
+  upstream-drift-check:
+    # Weekly only. Runs scripts/sync-upstream.sh --check: fetches upstream/main,
+    # reports ahead/behind/conflicts as JSON, exits 10 when behind > 0 (job fails
+    # = signal to run `npm run sync:upstream` locally). Never merges.
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Check upstream drift
+        run: bash scripts/sync-upstream.sh --check

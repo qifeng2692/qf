@@ -1,6 +1,15 @@
 > 本仓库是 [earendil-works/pi](https://github.com/earendil-works/pi)（MIT）的 fork，CLI 命令为 `qf`（原 `pi`）。
 > 本地开发：`npm run build` 后在 `packages/qf-launcher` 里 `npm link` 即可全局使用 `qf` 命令。
 
+### 与上游同步
+
+```bash
+npm run sync:upstream               # fetch upstream/main -> merge -> npm install + build + check
+npm run sync:upstream -- --check    # 仅检测落后/冲突预判（JSON 摘要），不合并；落后时 exit 10
+```
+
+要求工作树干净；合并冲突会自动 abort 并列出冲突文件（exit 2），合并后校验失败会给出回滚命令（exit 3）。细节见 [scripts/sync-upstream.sh](scripts/sync-upstream.sh) 顶部注释。CI 每周跑一次 `--check` 巡检上游漂移（`.github/workflows/ci.yml` 的 schedule 触发）。
+
 <p align="center">
   <a href="https://pi.dev">
     <img alt="pi logo" src="https://pi.dev/logo-auto.svg" width="128">
