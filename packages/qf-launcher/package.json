@@ -1,0 +1,9 @@
+{
+	"name": "@qf/launcher",
+	"version": "0.86.1",
+	"private": true,
+	"type": "module",
+	"bin": {
+		"qf": "./qf.mjs"
+	}
+}

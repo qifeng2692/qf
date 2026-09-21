@@ -1,3 +1,6 @@
+> 本仓库是 [earendil-works/pi](https://github.com/earendil-works/pi)（MIT）的 fork，CLI 命令为 `qf`（原 `pi`）。
+> 本地开发：`npm run build` 后在 `packages/qf-launcher` 里 `npm link` 即可全局使用 `qf` 命令。
+
 <p align="center">
   <a href="https://pi.dev">
     <img alt="pi logo" src="https://pi.dev/logo-auto.svg" width="128">
